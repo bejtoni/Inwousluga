@@ -4,7 +4,6 @@
 ### Members of the group:
 - Nijaz Andelić
 - Alen Bejtić
-- Haris Mustabašić
 
 ### Professors:
 - Amer Hadžikadić
