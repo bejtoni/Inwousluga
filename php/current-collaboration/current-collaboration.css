@@ -1,0 +1,89 @@
+.current-collaboration {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr;
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 1.6rem;
+  gap: 1.6rem;
+}
+
+.current-collaboration-left {
+  display: grid;
+  gap: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid #8437fb;
+}
+
+.current-collaboraion-info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-collaboration .service-icon {
+  height: 12.8rem;
+  width: 12.8rem;
+  border-radius: 32px;
+  grid-row: span 2;
+}
+
+.current-collaboration .service-icon i {
+  transform: scale(1.5);
+}
+
+.current-collaboration .heading-service {
+  font-weight: 600;
+  font-size: 3rem;
+  grid-column: span 2;
+}
+
+.current-collaboraion-info-row p:first-child {
+  color: #ceaffd;
+}
+
+.current-collaboraion-info-row p:last-child {
+  color: #351664;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.current-collaboration-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.stars-container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.stars-container i {
+  color: #ffd600;
+  transform: scale(1.3);
+}
+
+.current-collaboration-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: span 3;
+}
+
+.current-collaboration-info-container {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.current-collaboration-info-container button {
+  font-size: 1.6rem;
+  border: none;
+  background-color: transparent;
+  color: #8437fb;
+}
+
+.current-collaboration a:link,
+.current-collaboration a:visited {
+  color: #333;
+  font-weight: bolder;
+  text-decoration: underline;
+}

@@ -1,0 +1,52 @@
+/* -------------------------------------- */
+/* HEADER */
+/* -------------------------------------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 3.2rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+}
+
+.btn-mobile-nav {
+  display: none;
+}
+
+.logo-container {
+  display: flex;
+  padding-top: 1.6rem;
+  gap: 1.6rem;
+}
+
+.logo-container .icon {
+  margin-top: 0.4rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.main-nav-list {
+  display: flex;
+  list-style: none;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.nav-link-container {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.main-nav-link {
+  color: #8437fb !important;
+}
+
+.main-nav .button:visited,
+.main-nav .button:visited {
+  color: #fff;
+}

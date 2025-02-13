@@ -1,0 +1,293 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*:focus {
+  /* outline: none; */
+  /* box-shadow: 0 0 0 0.8rem rgba(9, 82, 125, 0.5); */
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  color: #555;
+  font-size: 1.6rem;
+}
+
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---------------- */
+/* TEXT */
+/* ---------------- */
+.bold {
+  font-weight: 600;
+  color: #333;
+}
+
+.white-text {
+  color: #fff !important;
+}
+
+.paragraph {
+}
+
+/* ---------------- */
+/* HEADINGS */
+/* ---------------- */
+.heading-primary {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.heading-secondary {
+  font-size: 3.6rem;
+  line-height: 1;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: -1px;
+}
+
+.heading-service {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.subheading {
+  color: #8437fb;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.heading-large {
+  position: relative;
+  z-index: 10;
+  color: #8437fb;
+  font-size: 6.2rem;
+  letter-spacing: -3px;
+}
+
+.heading-primary span {
+  font-weight: 700;
+}
+
+.heading-secondary span {
+  font-weight: 700;
+}
+
+.highlight {
+  color: #333;
+  font-size: 2.4rem;
+}
+
+/* ---------------- */
+/* CONTAINER */
+/* ---------------- */
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+.big-container {
+  width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+}
+
+.none {
+  display: none !important;
+}
+
+/* ---------------- */
+/* GRIDS */
+/* ---------------- */
+.grid {
+  display: grid;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--8-cols {
+  grid-template-columns: repeat(8, 12.5%);
+}
+
+/* ---------------- */
+/* GRIDS */
+/* ---------------- */
+.flex {
+  display: flex;
+  /* align-items: center; */
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-gap-sm {
+  gap: 1.6rem;
+}
+
+/* ---------------- */
+/* BUTTONS */
+/* ---------------- */
+.button {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #8437fb;
+  outline: none;
+  border: none;
+  border-radius: 100px;
+  padding: 1.6rem 3.2rem;
+  color: #fff;
+  transition: all 300ms;
+}
+
+.button:hover {
+  background-color: #351664;
+  transition: all 300ms;
+}
+
+.search-button {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: #8437fb;
+
+  /* padding: 1.6rem; */
+  /* display: inline-block; */
+  /* height: 2rem; */
+}
+
+.button-pink {
+  background-color: #ceaffd;
+  color: #333;
+}
+
+/* ---------------- */
+/* SECTION */
+/* ---------------- */
+section {
+  padding: 9.6rem 0;
+}
+
+/* ---------------- */
+/* INPUTS */
+/* ---------------- */
+.input-text {
+  /* width: 40rem; */
+  height: 5rem;
+  border-radius: 9px;
+  background-color: #fff;
+  border: 1px solid #8437fb;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  color: #555;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+}
+
+/* ---------------- */
+/* MARGINS */
+/* ---------------- */
+.margin-bottom-xxsm {
+  margin-bottom: 0.4rem;
+}
+.margin-bottom-xsm {
+  margin-bottom: 1.6rem;
+}
+
+.margin-bottom-sm {
+  margin-bottom: 3.2rem;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem;
+}
+
+/* ---------------- */
+/* IMAGES */
+/* ---------------- */
+
+/* ---------------- */
+/* LINKS */
+/* ---------------- */
+
+/* ---------------- */
+/* SECTION */
+/* ---------------- */
+
+/* ---------------- */
+/* PARAGRAPH */
+/* ---------------- */
+
+/* ---------------- */
+/* PARAGRAPH */
+/* ---------------- */
+.search {
+  border: 1px solid #777777;
+  outline: none;
+  /* border-radius: 12px; */
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  padding-left: 1.6rem;
+}
+
+/* ---------------- */
+/* ICON */
+/* ---------------- */
+.icon {
+  color: #8437fb;
+  font-size: 2rem;
+}
+
+/* ---------------- */
+/* FORM */
+/* ---------------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.form .button {
+  font-size: 2rem;
+  padding: 1.6rem 4.8rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.form .button {
+  align-self: start;
+}

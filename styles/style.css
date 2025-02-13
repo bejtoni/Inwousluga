@@ -1,0 +1,722 @@
+/* *************************************** */
+/* -------------------------------------- */
+/* CATEGORIES PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* SECTION CATEGORY
+/* -------------------------------------- */
+.categories-list {
+  background-color: #d9d9d9;
+  padding: 3.2rem;
+  border-radius: 12px;
+  gap: 3.2rem;
+  max-height: 100rem;
+  overflow-x: scroll;
+}
+
+.category:nth-child(3n + 2) {
+  top: -3rem;
+  position: relative;
+}
+
+.category:nth-child(2) {
+  height: 27rem;
+  top: 0rem;
+  position: relative;
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* SERVICES PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* SECTION SERVICES
+/* -------------------------------------- */
+.service {
+  position: relative;
+  z-index: 10;
+}
+
+.services-list {
+  background: linear-gradient(to right, #d9d9d9 50%, #c9c9c9 50%);
+  background-color: #d9d9d9;
+  border-radius: 12px;
+  padding: 0px;
+  overflow: hidden;
+  /* flex-wrap: wrap; */
+  padding: 3.2rem;
+  column-gap: 6.4rem;
+  row-gap: 3.2rem;
+}
+
+.services-list-block {
+  /* flex-direction: column; */
+}
+
+.services-list-right {
+  background-color: #c9c9c9;
+}
+
+.services-list--service {
+  border-radius: 9px;
+  background-color: #fff;
+  grid-column: 1/-1;
+  padding: 3.2rem;
+  grid-template-columns: 1fr 3fr;
+  column-gap: 1.6rem;
+}
+
+.services-list--service .grid {
+  gap: 1.6rem;
+  grid-column: 1/-1;
+  grid-template-columns: 1fr 3fr;
+}
+
+.services-list--service .grid .button {
+  grid-column: 1/-1;
+  justify-self: end;
+}
+
+.service-properties-container {
+  height: 100%;
+  /* grid-column: 2/-1; */
+}
+
+.total-rating-container {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.total-rating-container i {
+  color: #ffd600;
+}
+
+.service-links:link,
+.service-links:visited {
+  color: #333;
+}
+
+.service-list-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.service-list-contact .service-icon {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.service-list-contact > div:not(.service-icon) {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.service-buttons {
+  grid-column: 2/-1;
+  margin-left: auto;
+}
+
+.non-transparent button {
+  background-color: #8437fb !important;
+}
+
+.comment-container {
+  padding: 1.6rem;
+  /* background: linear-gradient(to right, #d9d9d9 50%, #c9c9c9 50%); */
+  background-color: #d9d9d9;
+  grid-column: 1/-1;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-container .input-text {
+  width: 100%;
+  color: #333 !important;
+}
+
+.commented {
+  position: relative;
+  border: 0.5px solid transparent;
+  background-color: #c9c9c9;
+}
+
+.commented + .button {
+  margin-right: auto;
+}
+/* *************************************** */
+/* -------------------------------------- */
+/* PROFILE PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* SECTION PROFILE
+/* -------------------------------------- */
+.edit-section {
+  background-color: rgba(206, 175, 253, 0.15);
+  padding: 0;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  background-color: rgba(206, 175, 253, 0.3);
+  padding: 3.2rem;
+  /* padding: 3.2rem 1.6rem; */
+  border-radius: 12px;
+}
+
+.left {
+  /* justify-content: center; */
+  padding: 9.6rem 12.8rem;
+}
+
+.right {
+  /* justify-content: center; */
+  padding: 9.6rem 12.8rem;
+}
+
+.right-picture,
+.left-picture {
+  height: 100%;
+  position: relative;
+}
+
+.background-img-part {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+}
+
+.hue {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #351664;
+  mix-blend-mode: hue;
+  z-index: 10;
+}
+
+/* -------------------------------------- */
+/* SECTION COLLABORATIONS LIKES BUTTONS */
+/* -------------------------------------- */
+.big-buttons {
+  gap: 6.4rem;
+}
+
+.big-button {
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.big-buttons img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.big-button span {
+  position: absolute;
+  z-index: 100;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.collaborations-big-button {
+  justify-self: end;
+}
+
+.liked-big-button::before {
+  content: "Check them";
+  position: absolute;
+  top: 12%;
+  right: -23%;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #8437fb;
+  padding: 0.8rem 8rem;
+  transform: rotate(45deg);
+}
+
+.liked-big-button {
+  border: 2px solid #8437fb;
+}
+
+.liked-big-button img {
+  opacity: 0.15;
+}
+
+.liked-big-button span {
+  color: #333;
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* LOGIN PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* SECTION LOGIN
+/* -------------------------------------- */
+.section-login,
+.section-register {
+  padding: 0px;
+  height: 100vh;
+}
+
+.section-login .grid,
+.section-register .grid {
+  height: 100%;
+}
+
+.section-login .left-picture,
+.section-register .right-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0.8rem 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.section-login .right,
+.section-register .left {
+  display: flex;
+  flex-direction: column;
+  margin-top: 9.6rem;
+  /* justify-content: center; */
+}
+
+.already-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: auto;
+}
+
+.already-container a {
+  color: #8437fb;
+  text-decoration: underline;
+  font-size: 1.8rem;
+}
+
+.logo-center {
+  position: relative;
+  z-index: 10;
+}
+
+.small-logo {
+  width: 100px;
+  height: 100px;
+  display: none;
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* REGISTER PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* SECTION REGISTER
+/* -------------------------------------- */
+.section-register .left {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0rem;
+  /* justify-content: center; */
+}
+
+.section-register .already-container {
+  margin-top: 0;
+}
+
+.section-register .flex {
+  gap: 1.6rem;
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* COLLABORATIONS PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* SECTION INCOMING COLABORATIONS
+/* -------------------------------------- */
+.incoming-collaboration {
+  padding: 1.6rem 3.2rem;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  border-bottom: 2px solid #8437fb;
+}
+.incoming-collaboration-row {
+  /* padding: 1.6rem 3.2rem; */
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 2px solid #8437fb; */
+}
+
+.incoming-collaboration:first-child {
+  border-top: 2px solid #8437fb;
+}
+
+.incoming-collaboration:nth-child(odd) {
+  background-color: rgba(206, 175, 253, 0.2);
+}
+
+.incoming-collaboration-text {
+  display: flex;
+  align-items: center;
+}
+
+.incoming-collaboration-text p {
+  font-size: 1.8rem;
+}
+
+.incoming-collaboration-text span {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* -------------------------------------- */
+/* SECTION CURRENT COLABORATIONS
+/* -------------------------------------- */
+.filters {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.filter-box {
+  padding: 1.2rem 2.4rem;
+  border-radius: 100rem;
+  color: #333;
+  border: 1px solid #777;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.filter-box-pink {
+  background-color: #ceaffd;
+}
+
+.tags {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.tag-box {
+  align-items: center;
+  gap: 0.8rem;
+  display: flex;
+  border-radius: 4px;
+  padding: 1.2rem 2.4rem;
+  border: 1px solid #777;
+  background-color: rgba(255, 213, 0, 0.2);
+}
+
+.current-collaborations-container {
+  height: 80vh;
+  background-color: #d9d9d9;
+  grid-template-columns: 2fr 1fr;
+  border-radius: 12px;
+  padding-right: 0px;
+  overflow: hidden;
+}
+
+.section-pending-collaborations .current-collaborations-container {
+  padding-left: 0px;
+  padding-right: 1.6rem;
+  grid-template-columns: 1fr 2fr;
+}
+
+.current-collaborations {
+  padding: 3.2rem 9.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  overflow-y: scroll;
+}
+
+.current-collaborations-container .background-img-part {
+  mix-blend-mode: luminosity;
+}
+
+.current-collaboration .total-rating-container {
+  grid-column: 1/-1;
+  /* border: 5px solid black; */
+}
+
+.star-rating i {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc; /* Default star color */
+}
+
+.star-rating i.selected,
+.star-rating i:hover,
+.star-rating i:hover ~ i {
+  color: gold;
+}
+
+.star-rating .fa-solid {
+  color: #ffd600;
+}
+/* -------------------------------------- */
+/* SECTION PENDING COLLABORATIONS
+/* -------------------------------------- */
+.section-pending-collaborations {
+  background-color: rgba(206, 175, 253, 0.1) !important;
+}
+
+.service-addition {
+  position: relative;
+  /* border: 5px solid black; */
+  padding: 1.6rem;
+  /* padding-top: 4.8rem; */
+  top: -10%;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-addition.service-addition-padding {
+  padding-top: 4.8rem !important;
+}
+
+.service-addition span,
+.service-addition i {
+  color: #8437fb;
+}
+
+.service-addition span:last-child {
+  color: #351664;
+  font-weight: 600;
+}
+
+.service-addition i {
+  border: 1px solid #8437fb;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* LIKED SERVICES PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* LIKED SERVICES SECITON
+/* -------------------------------------- */
+.section-liked-services {
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* ADD SERVICE PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* ADD SERVICE SECITON
+/* -------------------------------------- */
+.section-add-service {
+}
+
+.add-service-form {
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* ADMIN PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* SECTION ADMIN
+/* -------------------------------------- */
+.section-admin {
+  padding: 0px;
+  /* height: 100vh; */
+  /* overflow: scroll; */
+}
+
+.admin-container {
+  display: flex;
+  height: 100vh;
+}
+
+.admin-left-side {
+  width: 40rem;
+  background-color: #8437fb;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.6rem 3.2rem;
+  /* justify-content: center; */
+}
+
+.admin-right-side {
+  flex: 1;
+  /* padding: 1.6rem; */
+  height: 100%;
+}
+
+.admin-header {
+  width: 100%;
+  background-color: #8437fb;
+  padding: 1.6rem 3.2rem;
+  display: flex;
+  justify-content: right;
+}
+
+.purple-button {
+  background-color: #8437fb;
+  color: #fff !important;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.white-button {
+  background-color: #fff;
+  color: #8437fb !important;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.button-admin {
+  width: 15%;
+  margin-right: 6px;
+  margin-bottom: 15px;
+}
+
+.admin-right-side .button-admin {
+  margin-bottom: 0px;
+}
+
+.white-button:hover {
+  background-color: #ccc;
+  color: #8437fb;
+}
+
+.admin-left-side img {
+  width: 60%;
+}
+
+.admin-operations-container {
+  padding: 1.6rem;
+  /* margin: 1.6rem; */
+  height: 100%;
+}
+
+.admin-text-insert-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.admin-crud-container {
+  border-radius: 12px;
+  padding: 1.6rem;
+  background-color: #d9d9d9;
+  height: 85%;
+  overflow: scroll;
+}
+
+.crud-row {
+  padding: 1.6rem 3.2rem;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  gap: 3.2rem;
+  grid-template-columns: 5% 0.5fr 0.5fr 0.5fr 0.5fr 1fr 5% 1fr;
+  align-items: center;
+}
+
+.crud-row-head {
+  font-weight: bold;
+  background-color: #6d6d6d !important;
+  color: #fff;
+}
+
+.buttons-row {
+  width: 100%;
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+}
+
+.crud-row:first-child {
+  border-top: 1px solid #333;
+}
+
+.crud-row:nth-child(odd) {
+  background-color: #f0f0f0;
+  /* background-color: rgba(133, 55, 251, 0.5); */
+  /* background-color: rgba(206, 175, 253, 0.5); */
+}
+
+/* *************************************** */
+/* -------------------------------------- */
+/* PROVIDER PROFILE PAGE
+/* -------------------------------------- */
+/* *************************************** */
+
+/* -------------------------------------- */
+/* PROVIDER SECITON
+/* -------------------------------------- */
+.provider-section {
+  padding-bottom: 0rem;
+}
+
+.provider-container {
+  background-color: #d9d9d9;
+  padding: 1.6rem;
+  border-radius: 12px;
+  gap: 1.6rem;
+  grid-template-columns: 1fr 3fr;
+}
+
+.provider-container .service-icon {
+  aspect-ratio: 1;
+}
+
+.provider-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}

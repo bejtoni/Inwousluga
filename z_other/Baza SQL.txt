@@ -1,0 +1,256 @@
+create table category
+(
+    CID           int auto_increment
+        primary key,
+    Category_Type varchar(255)                        not null,
+    Created_At    timestamp default CURRENT_TIMESTAMP null
+);
+
+create definer = admin@`%` trigger UpdateCategryDateOnEdit
+    before update
+    on category
+    for each row
+BEGIN
+    SET NEW.Created_At = CURRENT_TIMESTAMP;
+END;
+
+create table service
+(
+    SID                 int auto_increment
+        primary key,
+    Service_Name        varchar(255) not null,
+    Service_Description text         null,
+    Category_ID         int          null,
+    constraint service_ibfk_1
+        foreign key (Category_ID) references category (CID)
+            on delete cascade
+);
+
+create index Category_ID
+    on service (Category_ID);
+
+create table users
+(
+    UID          int auto_increment
+        primary key,
+    First_Name   varchar(255)         not null,
+    Last_Name    varchar(255)         not null,
+    DOB          date                 null,
+    Phone        varchar(15)          null,
+    Email        varchar(255)         null,
+    Password     varchar(255)         not null,
+    Total_Rating float                null,
+    IsAdmin      tinyint(1) default 0 null
+);
+
+create table provider_service
+(
+    PSID                 int auto_increment
+        primary key,
+    Total_Service_Rating float        null,
+    Name_Of_Service      varchar(255) not null,
+    Location             varchar(255) null,
+    Telephone_Number     varchar(15)  null,
+    Description          text         null,
+    Website              varchar(255) null,
+    Email                varchar(255) null,
+    User_ID              int          null,
+    Service_ID           int          null,
+    Image                blob         null,
+    constraint provider_service_ibfk_1
+        foreign key (User_ID) references users (UID)
+            on delete cascade,
+    constraint provider_service_ibfk_2
+        foreign key (Service_ID) references service (SID)
+            on delete cascade
+);
+
+create table collaboration
+(
+    CID                    int auto_increment
+        primary key,
+    Status                 enum ('p', 'a', 'f')                not null,
+    Review                 int                                 null,
+    Comment                text                                null,
+    Service_User_Message   text                                null,
+    Worked_Hours           int                                 null,
+    Collaboration_Started  timestamp default CURRENT_TIMESTAMP null,
+    Collaboration_Finished timestamp                           null,
+    User_ID                int                                 null,
+    Provider_Service_ID    int                                 null,
+    Date_Requested         timestamp                           not null,
+    constraint collaboration_ibfk_1
+        foreign key (User_ID) references users (UID)
+            on delete cascade,
+    constraint collaboration_ibfk_2
+        foreign key (Provider_Service_ID) references provider_service (PSID)
+            on delete cascade
+);
+
+create index Provider_Service_ID
+    on collaboration (Provider_Service_ID);
+
+create index Status
+    on collaboration (Status);
+
+create index User_ID
+    on collaboration (User_ID);
+
+create definer = admin@`%` trigger TotalRatingInUsersUpdateAfterInsertInCollaboration
+    after insert
+    on collaboration
+    for each row
+BEGIN
+    UPDATE users
+    SET Total_Rating = (SELECT AVG(Review) FROM collaboration WHERE User_ID = NEW.User_ID)
+    WHERE UID = NEW.User_ID;
+END;
+
+create definer = admin@`%` trigger after_collaboration_delete
+    after delete
+    on collaboration
+    for each row
+BEGIN
+    UPDATE users
+    SET Total_Rating = (SELECT AVG(Review) FROM collaboration WHERE User_ID = OLD.User_ID)
+    WHERE UID = OLD.User_ID;
+END;
+
+create definer = admin@`%` trigger after_collaboration_insert
+    after insert
+    on collaboration
+    for each row
+BEGIN
+    UPDATE provider_service
+    SET Total_Service_Rating = (SELECT AVG(Review) FROM collaboration WHERE Provider_Service_ID = NEW.Provider_Service_ID)
+    WHERE PSID = NEW.Provider_Service_ID;
+END;
+
+create definer = admin@`%` trigger after_collaboration_update
+    after update
+    on collaboration
+    for each row
+BEGIN
+    UPDATE users
+    SET Total_Rating = (SELECT AVG(Review) FROM collaboration WHERE User_ID = NEW.User_ID)
+    WHERE UID = NEW.User_ID;
+END;
+
+create definer = admin@`%` trigger before_collaboration_update_hours
+    before update
+    on collaboration
+    for each row
+BEGIN
+    IF NEW.Collaboration_Finished IS NOT NULL THEN
+        SET NEW.Worked_Hours = TIMESTAMPDIFF(HOUR, NEW.Collaboration_Started, NEW.Collaboration_Finished);
+    END IF;
+END;
+
+create table liked_service
+(
+    LSID                int auto_increment
+        primary key,
+    Comment             text                                null,
+    Date_Liked          timestamp default CURRENT_TIMESTAMP null,
+    User_ID             int                                 null,
+    Provider_Service_ID int                                 null,
+    constraint liked_service_ibfk_1
+        foreign key (User_ID) references users (UID)
+            on delete cascade,
+    constraint liked_service_ibfk_2
+        foreign key (Provider_Service_ID) references provider_service (PSID)
+            on delete cascade
+);
+
+create index Provider_Service_ID
+    on liked_service (Provider_Service_ID);
+
+create index User_ID
+    on liked_service (User_ID);
+
+create index Service_ID
+    on provider_service (Service_ID);
+
+create index User_ID
+    on provider_service (User_ID);
+
+create definer = admin@`%` view LikedServicesByUser as
+select `u`.`UID`                                      AS `UserID`,
+       concat(`u`.`First_Name`, ' ', `u`.`Last_Name`) AS `FullName`,
+       `ls`.`LSID`                                    AS `LikedServiceID`,
+       `ls`.`Comment`                                 AS `LikedComment`,
+       `ls`.`Date_Liked`                              AS `DateLiked`,
+       `ps`.`PSID`                                    AS `ProviderServiceID`,
+       `ps`.`Name_Of_Service`                         AS `ServiceName`
+from ((`inwousluga`.`liked_service` `ls` join `inwousluga`.`users` `u`
+       on ((`ls`.`User_ID` = `u`.`UID`))) join `inwousluga`.`provider_service` `ps`
+      on ((`ls`.`Provider_Service_ID` = `ps`.`PSID`)));
+
+create definer = admin@`%` view ServiceDetails as
+select `s`.`SID`                 AS `SID`,
+       `s`.`Service_Name`        AS `Service_Name`,
+       `s`.`Service_Description` AS `Service_Description`,
+       `c`.`CID`                 AS `CID`,
+       `c`.`Category_Type`       AS `Category_Type`
+from (`inwousluga`.`service` `s` join `inwousluga`.`category` `c` on ((`s`.`Category_ID` = `c`.`CID`)));
+
+create
+    definer = admin@`%` procedure AddOrUpdateProviderService(IN p_PSID int, IN p_Total_Service_Rating float,
+                                                             IN p_Name_Of_Service varchar(255),
+                                                             IN p_Location varchar(255),
+                                                             IN p_Telephone_Number varchar(15), IN p_Description text,
+                                                             IN p_Website varchar(255), IN p_Email varchar(255),
+                                                             IN p_User_ID int, IN p_Service_ID int, IN p_Image blob)
+BEGIN
+    IF p_PSID IS NULL THEN
+        -- Insert new record
+        INSERT INTO provider_service (
+            Total_Service_Rating, Name_Of_Service, Location, Telephone_Number, Description, Website, Email, User_ID, Service_ID, Image
+        ) VALUES (
+                     p_Total_Service_Rating, p_Name_Of_Service, p_Location, p_Telephone_Number, p_Description, p_Website, p_Email, p_User_ID, p_Service_ID, p_Image
+                 );
+    ELSE
+        -- Update existing record (excluding User_ID and Service_ID)
+        UPDATE provider_service
+        SET
+            Total_Service_Rating = p_Total_Service_Rating,
+            Name_Of_Service = p_Name_Of_Service,
+            Location = p_Location,
+            Telephone_Number = p_Telephone_Number,
+            Description = p_Description,
+            Website = p_Website,
+            Email = p_Email,
+            Image = p_Image
+        WHERE PSID = p_PSID;
+    END IF;
+END;
+
+create
+    definer = admin@`%` function GetFullUserName(p_UID int) returns varchar(255) deterministic
+BEGIN
+    DECLARE full_name VARCHAR(255);
+
+    SELECT CONCAT(First_Name, ' ', Last_Name) INTO full_name
+    FROM users
+    WHERE UID = p_UID;
+
+    RETURN full_name;
+END;
+
+create
+    definer = admin@`%` procedure GetServicesWithMinProviders(IN min_providers int)
+BEGIN
+    SELECT
+        s.SID AS ServiceID,
+        s.Service_Name AS ServiceName,
+        COUNT(ps.PSID) AS ProviderCount
+    FROM
+        service s
+            JOIN
+        provider_service ps ON s.SID = ps.Service_ID
+    GROUP BY
+        s.SID
+    HAVING
+        COUNT(ps.PSID) > min_providers;
+END;
+

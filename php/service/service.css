@@ -1,0 +1,65 @@
+.service {
+  position: relative;
+  z-index: 10;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.service-body {
+  padding: 2.4rem 1.2rem;
+  display: flex;
+  gap: 1.6rem;
+}
+.service-icon {
+  background-color: #ceaffd;
+  align-self: center;
+  padding: 1.6rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon i {
+  font-size: 4.4rem;
+  color: #8437fb;
+}
+
+.service-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-property {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  color: #351664;
+}
+
+.service-property i {
+  color: #ceaffd;
+}
+
+.service-bottom {
+  padding: 0.8rem 1.6rem;
+  border-top: 1px solid #8437fb;
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-bottom a {
+  color: #8437fb;
+}
+
+.service-buttons {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.service-buttons button {
+  background-color: transparent;
+  border: none;
+}

@@ -1,0 +1,92 @@
+/* -------------------------------------- */
+/* FOOTER */
+/* -------------------------------------- */
+
+ {
+    border-top: 1px solid #eee;
+    padding-top: 12.8rem;
+    padding-bottom: 2.4rem;
+}
+
+.footer-section .container {
+    max-width: 120rem;
+}
+
+.flex--footer{
+    justify-content: space-around;
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 3.2rem;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    list-style: none;
+}
+
+.footer-link {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    transition: all 0.3s;
+    color: #555555 !important;
+
+}
+
+.footer-link:hover {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.footer-logo {
+    display: block;
+    margin-bottom: 3.2rem;
+}
+
+.logo-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-row {
+    display: flex;
+    gap: 2.4rem;
+}
+
+.social-row .footer-link {
+    font-size: 2.4rem;
+}
+
+.copyright {
+    font-size: 1.4rem;
+    line-height: 1.66;
+    margin-top: auto;
+}
+
+.address-links {
+    font-style: normal;
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+.margin-bottom-footer {
+    margin-bottom: 2.4rem;
+}
+
+.lg-footer-text {
+    font-size: 3rem;
+    opacity: 70%;
+}
+
+.inwolve {
+    padding: 1.6rem 0;
+    margin-top: 9.6rem;
+    border-top: 1px solid #cccccc;
+    text-align: center;
+    color: #cccccc;
+}

@@ -1,0 +1,10 @@
+/* -------------------------------------- */
+/* SITE HEADING */
+/* -------------------------------------- */
+.heading-site {
+    font-size: 2rem;
+}
+
+.heading-site p:last-child {
+    justify-self: end;
+}

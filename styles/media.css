@@ -1,0 +1,184 @@
+/* ---------------- */
+/* BELOW 1200px (Landscape Tablets) */
+/* ---------------- */
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+  .big-container {
+    width: 110rem;
+  }
+}
+
+/* ---------------- */
+/* BELOW 944px (Tablets) */
+/* ---------------- */
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+
+  .big-container {
+    width: 85rem;
+  }
+
+  .section-login .left-picture,
+  .section-register .right-picture {
+    display: none;
+  }
+
+  .section-login > div,
+  .section-register > div {
+    display: block;
+  }
+
+  .small-logo {
+    display: block;
+  }
+
+  .header {
+    padding: 1.6rem 2.4rem;
+  }
+  .big-container .form .form-row {
+    /* width: 50%; */
+  }
+
+  .current-collaborations-container {
+    grid-template-columns: 1fr !important;
+  }
+  .current-collaborations-container .right-picture img {
+    /* object-fit: cover; */
+  }
+}
+
+/* ---------------- */
+/* BELOW 704px  (Smaller Tablets) */
+/* ---------------- */
+@media (max-width: 44em) {
+  .admin-container {
+    display: block;
+  }
+
+  .admin-left-side {
+    width: 100%;
+    height: auto;
+    /* flex-direction: row; */
+  }
+
+  .admin-left-side img {
+    display: none;
+  }
+
+  .edit-section .grid--2-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .current-collaborations {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .current-collaboration {
+    /* grid-template-columns: 2fr 1fr; */
+    grid-template-columns: 1fr;
+  }
+
+  .current-collaboration .service-icon {
+    /* grid-column: 1/-1; */
+  }
+
+  .incoming-collaboration-row {
+    flex-direction: column;
+    margin-bottom: 0.8rem;
+  }
+  .big-container {
+    width: 65rem;
+  }
+
+  .collaborations-big-button {
+    justify-self: unset;
+  }
+
+  .categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    max-height: 300rem;
+  }
+
+  .footer-section > div {
+    display: flex;
+    gap: 6.2rem;
+    flex-direction: column;
+    margin-left: 2.6rem;
+  }
+
+  .category:nth-child(3n + 2) {
+    top: 0;
+  }
+
+  .category {
+    height: 25rem;
+  }
+
+  .category:nth-child(2) {
+    height: 25rem;
+  }
+
+  .search-button {
+    padding: 0 1.2rem;
+  }
+
+  .service-row-image img {
+    width: 74px;
+  }
+
+  .main-nav-link {
+    display: none;
+  }
+
+  img[alt="Inwobill logo"] {
+    width: 100px; /* adjust the width as needed */
+    height: auto; /* maintains the aspect ratio */
+  }
+
+  .big-container .form .form-row {
+    /* width: 30%; */
+  }
+
+  .crud-row.grid {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 5% 0.5fr 0.5fr 0.5fr 0.5fr 1fr;
+  }
+
+  .buttons-row {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 34em) {
+  .big-container {
+    width: 47rem;
+  }
+  #register div:last-of-type {
+    flex-direction: column;
+  }
+
+  #register div:last-of-type .button {
+    margin: 0 auto;
+  }
+
+  .button {
+    padding: 10px 20px;
+  }
+
+  .big-container.grid.grid--2-cols.big-buttons {
+    grid-template-columns: 1fr !important;
+  }
+  .big-container.grid.grid--2-cols.big-buttons .big-button {
+    justify-self: center;
+  }
+  .services-list--service.grid form {
+    grid-template-columns: 1fr;
+  }
+}
